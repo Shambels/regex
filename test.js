@@ -3,7 +3,7 @@ var txt = document.getElementById('txt');
 
 
 if (typeof window.orientation !== 'undefined') {
-   window.addEventListener('change', () => {
+   txt.addEventListener('change', () => {
       let input = event.clipboardData.getData('text');
       setTimeout(() => {
          txt.value = input.replace(/-|_/g, ' ');
