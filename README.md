@@ -1,6 +1,6 @@
 # regex
 
-Replaces hyphen and underscores with spaces, and copies output in the clipboard automatically.
+Replaces hyphen and underscores with spaces ( & vice-versa) then automatically copies the output in the clipboard.
 
 ## How To
 1. Paste unto Text Area
