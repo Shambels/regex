@@ -1,23 +1,20 @@
 
-var txt = document.getElementById('txt');
+var toSpace = document.getElementById('to-space');
+var fromSpace = document.getElementById('from-space');
 
+window.addEventListener('paste', () => {
 
-if (typeof window.orientation !== 'undefined') {
-   txt.addEventListener('change', () => {
-      let input = event.clipboardData.getData('text');
-      setTimeout(() => {
-         txt.value = input.replace(/-|_/g, ' ');
-         txt.select();
-         document.execCommand("copy");
-      }, 120);
-   });
-} else {
-   window.addEventListener('paste', () => {
-      let input = event.clipboardData.getData('text');
-      setTimeout(() => {
-         txt.value = input.replace(/-|_/g, ' ');
-         txt.select();
-         document.execCommand("copy");
-      }, 120);
-   });
-}
+   let input = event.clipboardData.getData('text');
+
+   setTimeout(() => {
+      if (document.activeElement.id === "to-space") {
+         toSpace.value = input.replace(/-|_/g, ' ');
+         toSpace.select();
+      }
+      else {         
+         fromSpace.value = input.replace(/  */g, '-');
+         fromSpace.select();
+      }
+      document.execCommand("copy");
+   }, 50);
+});
